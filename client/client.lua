@@ -131,6 +131,8 @@ function SetupStationInteractPrompt()
     PromptSetVisible(StationInteract, 1)
     PromptSetStandardMode(StationInteract, 1)
     PromptSetGroup(StationInteract, StationInteractPrompt)
+    -- If you want to hold the key use with this
+    -- PromptSetHoldMode(WashPrompt, 1000)
     Citizen.InvokeNative(0xC5F428EE08FA7F2C, StationInteract, true)
     PromptRegisterEnd(StationInteract)
 end
@@ -176,6 +178,11 @@ Citizen.CreateThread(function()
                 if Citizen.InvokeNative(0xC92AC953F0A982AE, StationInteract) then
                    print('ACCESS')
                 end
+
+                -- For holding key use this
+                -- if PromptHasHoldModeCompleted(StationInteract) then
+                --     -- Your code
+                -- end
             end
             
         end
